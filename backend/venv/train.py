@@ -9,7 +9,7 @@ model.config.pad_token_id = tokenizer.eos_token_id
 
 print("Modelo GPT-2 carregado com sucesso!")
 
-input_text = "A inteligência artificial está revolucionando diversos setores, incluindo a saúde, educação e tecnologia. Um exemplo disso é"
+input_text = "Artificial intelligence is transforming various industries, including healthcare, education, and technology. One example is"
 
 inputs = tokenizer(input_text, return_tensors="pt", padding=True)
 
@@ -19,8 +19,9 @@ output = model.generate(
     max_length=100,
     num_return_sequences=1,
     do_sample=True,
-    temperature=0.8,
-    top_p=0.9,
+    temperature=0.5,
+    top_p=0.95,
+    top_k=50,
     repetition_penalty=1.2,
 )
 
